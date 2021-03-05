@@ -52,7 +52,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    
     //open the screen where we can see item info and delete 
     }
+    @IBAction func didTapAddButton() {
     
-} 
-
+    }
+    
+}
 
