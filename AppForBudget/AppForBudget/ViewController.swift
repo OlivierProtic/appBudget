@@ -53,7 +53,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     //open the screen where we can see item info and delete 
     }
     @IBAction func didTapAddButton() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "enter") as? EntryViewController else {
+            return
+            
+        }
+        vc.completionHandler = { [weak self] in
+            self?.refresh
+        }
+        vc.title = "New Item"
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
     
+    }
+    
+    func refresh() {
+        
     }
     
 }

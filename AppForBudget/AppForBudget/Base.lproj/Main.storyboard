@@ -8,16 +8,42 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Entry View Controller-->
         <scene sceneID="utV-PY-NmR">
             <objects>
-                <viewController id="jHe-Pf-3rI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="enter" id="jHe-Pf-3rI" customClass="EntryViewController" customModule="AppForBudget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="B7i-Sd-NJ8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pe8-bk-8pI">
+                                <rect key="frame" x="20" y="54" width="374" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="hLQ-ln-7Lg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hyR-g9-u9T">
+                                <rect key="frame" x="0.0" y="281" width="414" height="706"/>
+                            </datePicker>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="JDK-2x-60r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="pe8-bk-8pI" secondAttribute="trailing" constant="20" id="2Mc-y9-Qvk"/>
+                            <constraint firstItem="pe8-bk-8pI" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="20" id="QS8-Xv-heb"/>
+                            <constraint firstItem="hyR-g9-u9T" firstAttribute="leading" secondItem="B7i-Sd-NJ8" secondAttribute="leading" id="QZB-NH-CaE"/>
+                            <constraint firstItem="hyR-g9-u9T" firstAttribute="top" secondItem="pe8-bk-8pI" secondAttribute="bottom" constant="50" id="Wme-bC-79J"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="bottom" secondItem="hyR-g9-u9T" secondAttribute="bottom" id="Y2w-h0-7ve"/>
+                            <constraint firstItem="pe8-bk-8pI" firstAttribute="top" secondItem="JDK-2x-60r" secondAttribute="top" constant="10" id="Zkh-7i-fs2"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="hyR-g9-u9T" secondAttribute="trailing" id="p4w-TZ-3hh"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="hyR-g9-u9T" id="ZCd-pY-JQ0"/>
+                        <outlet property="textField" destination="pe8-bk-8pI" id="hJD-bG-boF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9D-eJ-MBc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
