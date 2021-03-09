@@ -25,12 +25,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
    
 
     @IBOutlet var table: UITableView!
-   
+  
+    private let realm = try! Realm()
     private var data = [ToDoListItem]()
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        data = realm.objects(ToDoListItem.self).map({ $0 })
         table.register(UITableView.self, forCellReuseIdentifier: "cell")
         table.delegate = self
         table.dataSource = self
@@ -58,7 +59,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             
         }
         vc.completionHandler = { [weak self] in
-            self?.refresh
+            self?.refresh()
         }
         vc.title = "New Item"
         vc.navigationItem.largeTitleDisplayMode = .never
@@ -67,7 +68,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func refresh() {
-        
+        data = realm.objects(ToDoListItem.self).map({ $0 })
+        table.reloadData()
     }
     
 }
