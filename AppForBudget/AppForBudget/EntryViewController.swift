@@ -42,7 +42,8 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
             realm.add(newItem)
             try! realm.commitWrite()
             
-            completionHandler?() 
+            completionHandler?()
+            navigationController?.popToRootViewController(animated: true)
      }
         else {
             print("Add something")
