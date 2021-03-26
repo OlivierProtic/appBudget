@@ -10,8 +10,7 @@ import UIKit
 class ViewViewController: UIViewController {
 
     public var item: ToDoListItem?
-    
-    public var deletionHandler: (() -> Void)
+    public var deletionHandler: (() -> Void)?
     
     @IBOutlet var itemLabel: UILabel!
     @IBOutlet var dateLabel: UILabel!
@@ -41,6 +40,9 @@ class ViewViewController: UIViewController {
         realm.beginWrite()
         realm.delete(myItem)
         try! realm.commitWrite()
+        
+        deletionHandler?()
+        navigationController?.popToRootViewController(animated: true)
     
     }
  

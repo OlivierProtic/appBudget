@@ -49,16 +49,49 @@
             </objects>
             <point key="canvasLocation" x="1861" y="84"/>
         </scene>
-        <!--View Controller-->
+        <!--View View Controller-->
         <scene sceneID="vRl-6H-1nv">
             <objects>
-                <viewController id="9nX-Ag-cgD" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="view" id="9nX-Ag-cgD" customClass="ViewViewController" customModule="AppForBudget" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ECV-am-I8E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIb-cq-AB1">
+                                <rect key="frame" x="20" y="64" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="GFO-6T-Xqs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tN6-yd-tOE">
+                                <rect key="frame" x="20" y="144" width="374" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="gtc-zC-Ffe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="FSA-Q4-9Lg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tN6-yd-tOE" firstAttribute="leading" secondItem="FSA-Q4-9Lg" secondAttribute="leading" constant="20" id="2lR-8H-iLq"/>
+                            <constraint firstItem="NIb-cq-AB1" firstAttribute="top" secondItem="FSA-Q4-9Lg" secondAttribute="top" constant="20" id="35K-jh-AiB"/>
+                            <constraint firstItem="NIb-cq-AB1" firstAttribute="leading" secondItem="FSA-Q4-9Lg" secondAttribute="leading" constant="20" id="DgR-OR-Wx7"/>
+                            <constraint firstItem="FSA-Q4-9Lg" firstAttribute="trailing" secondItem="NIb-cq-AB1" secondAttribute="trailing" constant="20" id="XbO-1y-Gpz"/>
+                            <constraint firstItem="tN6-yd-tOE" firstAttribute="top" secondItem="NIb-cq-AB1" secondAttribute="bottom" constant="10" id="cnc-U7-8pe"/>
+                            <constraint firstItem="NIb-cq-AB1" firstAttribute="top" secondItem="FSA-Q4-9Lg" secondAttribute="top" constant="20" id="wcS-4W-aRw"/>
+                            <constraint firstItem="FSA-Q4-9Lg" firstAttribute="trailing" secondItem="tN6-yd-tOE" secondAttribute="trailing" constant="20" id="yGN-7Z-DL9"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="tN6-yd-tOE" id="cHj-0n-wK5"/>
+                        <outlet property="itemLabel" destination="NIb-cq-AB1" id="hem-P2-xdi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5e-RG-m4u" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
