@@ -24,24 +24,25 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <datePicker contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="hyR-g9-u9T">
-                                <rect key="frame" x="0.0" y="281" width="414" height="706"/>
-                            </datePicker>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-ly-mVE">
+                                <rect key="frame" x="20" y="486" width="344" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JDK-2x-60r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="pe8-bk-8pI" secondAttribute="trailing" constant="20" id="2Mc-y9-Qvk"/>
                             <constraint firstItem="pe8-bk-8pI" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="20" id="QS8-Xv-heb"/>
-                            <constraint firstItem="hyR-g9-u9T" firstAttribute="leading" secondItem="B7i-Sd-NJ8" secondAttribute="leading" id="QZB-NH-CaE"/>
-                            <constraint firstItem="hyR-g9-u9T" firstAttribute="top" secondItem="pe8-bk-8pI" secondAttribute="bottom" constant="50" id="Wme-bC-79J"/>
-                            <constraint firstItem="JDK-2x-60r" firstAttribute="bottom" secondItem="hyR-g9-u9T" secondAttribute="bottom" id="Y2w-h0-7ve"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="MX9-ly-mVE" secondAttribute="trailing" constant="50" id="Un7-sD-Que"/>
                             <constraint firstItem="pe8-bk-8pI" firstAttribute="top" secondItem="JDK-2x-60r" secondAttribute="top" constant="10" id="Zkh-7i-fs2"/>
-                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="hyR-g9-u9T" secondAttribute="trailing" id="p4w-TZ-3hh"/>
+                            <constraint firstItem="MX9-ly-mVE" firstAttribute="top" secondItem="pe8-bk-8pI" secondAttribute="bottom" constant="380" id="doX-uW-oFz"/>
+                            <constraint firstItem="MX9-ly-mVE" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="20" id="t5K-zN-zWn"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="hyR-g9-u9T" id="ZCd-pY-JQ0"/>
+                        <outlet property="costField" destination="MX9-ly-mVE" id="AzV-UP-klQ"/>
                         <outlet property="textField" destination="pe8-bk-8pI" id="hJD-bG-boF"/>
                     </connections>
                 </viewController>
@@ -97,7 +98,7 @@
             </objects>
             <point key="canvasLocation" x="2735" y="84"/>
         </scene>
-        <!--To Do List-->
+        <!--Budget-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="AppForBudget" customModuleProvider="target" sceneMemberID="viewController">
@@ -119,7 +120,7 @@
                             <constraint firstItem="NoB-8c-Uih" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZMN-wM-SPB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="To Do List" id="KR5-ee-0XU">
+                    <navigationItem key="navigationItem" title="Budget" id="KR5-ee-0XU">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="luT-pn-j2B">
                             <connections>
                                 <action selector="didTapAddButton" destination="BYZ-38-t0r" id="gW0-W3-pK2"/>

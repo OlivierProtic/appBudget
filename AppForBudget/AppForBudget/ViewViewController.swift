@@ -13,7 +13,7 @@ class ViewViewController: UIViewController {
     public var deletionHandler: (() -> Void)?
     
     @IBOutlet var itemLabel: UILabel!
-    @IBOutlet var dateLabel: UILabel!
+    @IBOutlet var costLabel: UILabel!
     
     private let realm = try! Realm()
     
@@ -27,7 +27,7 @@ class ViewViewController: UIViewController {
         super.viewDidLoad()
 
         itemLabel.text = item?.item
-        dateLabel.text = Self.dateFormatter.string(from: item!.date )
+        costLabel.text = Self.dateFormatter.string(from: item!.date )
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDelete))
     }

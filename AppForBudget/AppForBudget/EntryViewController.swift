@@ -10,7 +10,7 @@ import UIKit
 class EntryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var textField: UITextField!
-    @IBOutlet var datePicker: UIDatePicker!
+    @IBOutlet var costField: UITextField!
      
     private let realm = try! Realm()
     public var completionHandler: (() -> Void)?
@@ -20,24 +20,37 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
 
         textField.becomeFirstResponder()
         textField.delegate = self
-        datePicker.setDate(Date(), animated: true)
+      
+        //ajouté
+        costField.becomeFirstResponder()
+        costField.delegate = self
+        //
+    
+       // datePicker.setDate(Date(), animated: true)
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSaveButton))
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+          textField.resignFirstResponder()
+          return true
     }
+    //ajouté
+    func costFieldShouldReturn(_ costField: UITextField) -> Bool {
+          costField.resignFirstResponder()
+          return true
+    }
+    //
+        
     
     @objc func  didTapSaveButton() {
         if let text = textField.text, !text.isEmpty {
-            let date = datePicker.date
+           // let date = datePicker.date
             
             realm.beginWrite()
             
             let newItem = ToDoListItem()
-            newItem.date = date
+          //  newItem.date = date
             newItem.item = text
             realm.add(newItem)
             try! realm.commitWrite()
@@ -54,3 +67,4 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
     
 }
  
+
