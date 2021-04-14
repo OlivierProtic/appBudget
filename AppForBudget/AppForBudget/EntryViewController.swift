@@ -44,7 +44,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         
     
     @objc func  didTapSaveButton() {
-        if let text = textField.text, !text.isEmpty {
+        if let text = textField.text, !text.isEmpty, let amount = costField.text, !amount.isEmpty {
            // let date = datePicker.date
             
             realm.beginWrite()
@@ -52,6 +52,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
             let newItem = ToDoListItem()
           //  newItem.date = date
             newItem.item = text
+            newItem.amount = Double(amount)!
             realm.add(newItem)
             try! realm.commitWrite()
             
