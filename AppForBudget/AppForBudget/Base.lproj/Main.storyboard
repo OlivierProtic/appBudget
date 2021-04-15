@@ -90,7 +90,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="dateLabel" destination="tN6-yd-tOE" id="cHj-0n-wK5"/>
+                        <outlet property="costLabel" destination="tN6-yd-tOE" id="vJx-E8-aCs"/>
                         <outlet property="itemLabel" destination="NIb-cq-AB1" id="hem-P2-xdi"/>
                     </connections>
                 </viewController>

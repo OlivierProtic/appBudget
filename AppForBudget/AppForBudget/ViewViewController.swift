@@ -27,7 +27,7 @@ class ViewViewController: UIViewController {
         super.viewDidLoad()
 
         itemLabel.text = item?.item
-        costLabel.text = Self.dateFormatter.string(from: item!.date )
+        costLabel.text = String(item?.amount ?? 0)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDelete))
     }

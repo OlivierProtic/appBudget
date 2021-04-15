@@ -8,5 +8,4 @@ target 'AppForBudget' do
   # Pods for AppForBudget
   pod 'RealmSwift'
   pod 'SwiftLint'
-
 end
