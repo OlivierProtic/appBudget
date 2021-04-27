@@ -40,8 +40,18 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         costField.resignFirstResponder()
         return true
     }
-    //
-
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+      replacementString string: String) -> Bool {
+        if textField == costField {
+        let invalidCharacters =
+        CharacterSet(charactersIn: "0123456789").inverted
+      return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+        } else {
+            return true
+        }
+    }
+    
     @objc func  didTapSaveButton() {
         if let text = textField.text, !text.isEmpty, let amount = costField.text, !amount.isEmpty {
            // let date = datePicker.date
