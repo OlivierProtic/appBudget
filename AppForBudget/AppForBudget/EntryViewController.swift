@@ -11,6 +11,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var textField: UITextField!
     @IBOutlet var costField: UITextField!
+    @IBOutlet var incomeExpenseControl: UISegmentedControl!
 
     private let realm = try! Realm()
     public var completionHandler: (() -> Void)?
@@ -57,16 +58,26 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
            // let date = datePicker.date
 
             realm.beginWrite()
-
+       
             let newItem = ToDoListItem()
+        
+        switch(incomeExpenseControl.selectedSegmentIndex) {
+            case 0:
+                newItem.positiveOrNegative = true
+            case 1:
+                newItem.positiveOrNegative = false
+            default:
+                newItem.positiveOrNegative = true
+            }
+            
             //  newItem.date = date
             newItem.item = text
             newItem.amount = Double(amount)!
             realm.add(newItem)
             try! realm.commitWrite()
-
             completionHandler?()
             navigationController?.popToRootViewController(animated: true)
+            print(newItem.positiveOrNegative)
         } else {
             print("Add something")
         }

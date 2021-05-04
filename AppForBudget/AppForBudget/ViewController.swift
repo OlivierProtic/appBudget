@@ -19,11 +19,13 @@ import UIKit
 class ToDoListItem: Object {
     @objc dynamic var item: String = ""
     @objc dynamic var amount: Double = 0
+    @objc dynamic var positiveOrNegative: Bool = true
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet var table: UITableView!
+    @IBOutlet var total: UILabel!
 
     private let realm = try! Realm()
     private var data = [ToDoListItem]()
@@ -35,6 +37,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.delegate = self
         table.dataSource = self
         // Do any additional setup after loading the view.
+        total.text = ""
     }
     // MARK: Table
 
@@ -84,4 +87,5 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         data = realm.objects(ToDoListItem.self).map({ $0 })
         table.reloadData()
     }
+
 }

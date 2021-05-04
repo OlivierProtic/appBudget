@@ -25,24 +25,35 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-ly-mVE">
-                                <rect key="frame" x="20" y="486" width="344" height="34"/>
+                                <rect key="frame" x="20" y="486" width="374" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rnr-q9-yYR">
+                                <rect key="frame" x="100" y="355" width="214" height="32"/>
+                                <segments>
+                                    <segment title="Income"/>
+                                    <segment title="Expense"/>
+                                </segments>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JDK-2x-60r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="pe8-bk-8pI" secondAttribute="trailing" constant="20" id="2Mc-y9-Qvk"/>
                             <constraint firstItem="pe8-bk-8pI" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="20" id="QS8-Xv-heb"/>
-                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="MX9-ly-mVE" secondAttribute="trailing" constant="50" id="Un7-sD-Que"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="rnr-q9-yYR" secondAttribute="trailing" constant="100" id="RT0-92-tAz"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="MX9-ly-mVE" secondAttribute="trailing" constant="20" id="Un7-sD-Que"/>
                             <constraint firstItem="pe8-bk-8pI" firstAttribute="top" secondItem="JDK-2x-60r" secondAttribute="top" constant="10" id="Zkh-7i-fs2"/>
                             <constraint firstItem="MX9-ly-mVE" firstAttribute="top" secondItem="pe8-bk-8pI" secondAttribute="bottom" constant="380" id="doX-uW-oFz"/>
+                            <constraint firstItem="MX9-ly-mVE" firstAttribute="top" secondItem="rnr-q9-yYR" secondAttribute="bottom" constant="100" id="gsx-ha-kxb"/>
+                            <constraint firstItem="rnr-q9-yYR" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="100" id="hSA-Si-aUj"/>
                             <constraint firstItem="MX9-ly-mVE" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="20" id="t5K-zN-zWn"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="costField" destination="MX9-ly-mVE" id="AzV-UP-klQ"/>
+                        <outlet property="incomeExpenseControl" destination="rnr-q9-yYR" id="dKn-y2-cUY"/>
                         <outlet property="textField" destination="pe8-bk-8pI" id="hJD-bG-boF"/>
                     </connections>
                 </viewController>
@@ -107,17 +118,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NoB-8c-Uih">
-                                <rect key="frame" x="0.0" y="140" width="414" height="722"/>
+                                <rect key="frame" x="0.0" y="140" width="414" height="672"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7zS-Vn-1wh">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="7zS-Vn-1wh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5hb-mC-Eso"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NoB-8c-Uih" secondAttribute="trailing" id="J6Z-Nu-vYZ"/>
                             <constraint firstItem="NoB-8c-Uih" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="RPD-ju-hiA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NoB-8c-Uih" secondAttribute="bottom" id="Z6v-nA-I1V"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="7zS-Vn-1wh" secondAttribute="bottom" id="VMw-Nt-IRY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NoB-8c-Uih" secondAttribute="bottom" constant="50" id="Z6v-nA-I1V"/>
                             <constraint firstItem="NoB-8c-Uih" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ZMN-wM-SPB"/>
+                            <constraint firstItem="7zS-Vn-1wh" firstAttribute="top" secondItem="NoB-8c-Uih" secondAttribute="bottom" id="kU0-DQ-Xmq"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="7zS-Vn-1wh" secondAttribute="trailing" id="wGg-xV-xIQ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="KR5-ee-0XU">
@@ -129,6 +150,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="table" destination="NoB-8c-Uih" id="jC3-bz-5bD"/>
+                        <outlet property="total" destination="7zS-Vn-1wh" id="uHX-tb-AKv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
