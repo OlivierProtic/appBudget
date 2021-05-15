@@ -30,6 +30,19 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     private let realm = try! Realm()
     private var data = [ToDoListItem]()
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        var sum: Double = 0
+        for item in data {
+            if item.positiveOrNegative == true {
+                sum += item.amount
+            } else {
+                sum -= item.amount
+            }
+        }
+        total.text = "Total: " + "\(sum)" + " $"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         data = realm.objects(ToDoListItem.self).map({ $0 })
@@ -37,8 +50,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.delegate = self
         table.dataSource = self
         // Do any additional setup after loading the view.
-        total.text = ""
+        
     }
+       
     // MARK: Table
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

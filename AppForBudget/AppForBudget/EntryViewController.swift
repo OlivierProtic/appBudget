@@ -12,7 +12,9 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var textField: UITextField!
     @IBOutlet var costField: UITextField!
     @IBOutlet var incomeExpenseControl: UISegmentedControl!
-
+    @IBOutlet var textFieldLabel: UILabel!
+    @IBOutlet var costFieldLabel: UILabel!
+    
     private let realm = try! Realm()
     public var completionHandler: (() -> Void)?
 
@@ -27,6 +29,9 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         costField.delegate = self
         //
 
+        textFieldLabel.text = "Name"
+        costFieldLabel.text = "Amount"
+        
         // datePicker.setDate(Date(), animated: true)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSaveButton))
@@ -46,7 +51,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
       replacementString string: String) -> Bool {
         if textField == costField {
         let invalidCharacters =
-        CharacterSet(charactersIn: "0123456789").inverted
+        CharacterSet(charactersIn: "0123456789.").inverted
       return (string.rangeOfCharacter(from: invalidCharacters) == nil)
         } else {
             return true
@@ -54,6 +59,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func  didTapSaveButton() {
+        
         if let text = textField.text, !text.isEmpty, let amount = costField.text, !amount.isEmpty {
            // let date = datePicker.date
 

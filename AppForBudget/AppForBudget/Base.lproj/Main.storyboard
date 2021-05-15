@@ -17,44 +17,72 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pe8-bk-8pI">
-                                <rect key="frame" x="20" y="54" width="374" height="52"/>
+                                <rect key="frame" x="20" y="164" width="374" height="34"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="52" id="hLQ-ln-7Lg"/>
+                                    <constraint firstAttribute="height" constant="34" id="hLQ-ln-7Lg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-ly-mVE">
-                                <rect key="frame" x="20" y="486" width="374" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="rnr-q9-yYR">
-                                <rect key="frame" x="100" y="355" width="214" height="32"/>
+                                <rect key="frame" x="80" y="347" width="254" height="32"/>
                                 <segments>
                                     <segment title="Income"/>
                                     <segment title="Expense"/>
                                 </segments>
                             </segmentedControl>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MX9-ly-mVE">
+                                <rect key="frame" x="20" y="478" width="374" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAG-PL-F2u">
+                                <rect key="frame" x="0.0" y="140" width="414" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="2lM-71-pQ7"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ9-Rc-8cp">
+                                <rect key="frame" x="0.0" y="454" width="414" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Wd5-CC-3gM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="JDK-2x-60r"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="pe8-bk-8pI" secondAttribute="trailing" constant="20" id="2Mc-y9-Qvk"/>
                             <constraint firstItem="pe8-bk-8pI" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="20" id="QS8-Xv-heb"/>
-                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="rnr-q9-yYR" secondAttribute="trailing" constant="100" id="RT0-92-tAz"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="rnr-q9-yYR" secondAttribute="trailing" constant="80" id="RT0-92-tAz"/>
                             <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="MX9-ly-mVE" secondAttribute="trailing" constant="20" id="Un7-sD-Que"/>
-                            <constraint firstItem="pe8-bk-8pI" firstAttribute="top" secondItem="JDK-2x-60r" secondAttribute="top" constant="10" id="Zkh-7i-fs2"/>
-                            <constraint firstItem="MX9-ly-mVE" firstAttribute="top" secondItem="pe8-bk-8pI" secondAttribute="bottom" constant="380" id="doX-uW-oFz"/>
+                            <constraint firstItem="pe8-bk-8pI" firstAttribute="top" secondItem="eAG-PL-F2u" secondAttribute="bottom" constant="4" id="VKQ-ae-I3n"/>
+                            <constraint firstItem="aZ9-Rc-8cp" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" id="Vth-xt-twE"/>
+                            <constraint firstItem="pe8-bk-8pI" firstAttribute="top" secondItem="JDK-2x-60r" secondAttribute="top" constant="120" id="Zkh-7i-fs2"/>
+                            <constraint firstItem="aZ9-Rc-8cp" firstAttribute="top" secondItem="rnr-q9-yYR" secondAttribute="bottom" constant="76" id="aGj-2G-qE9"/>
+                            <constraint firstItem="eAG-PL-F2u" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" id="aYn-Ff-8EJ"/>
+                            <constraint firstItem="MX9-ly-mVE" firstAttribute="top" secondItem="pe8-bk-8pI" secondAttribute="bottom" constant="280" id="doX-uW-oFz"/>
                             <constraint firstItem="MX9-ly-mVE" firstAttribute="top" secondItem="rnr-q9-yYR" secondAttribute="bottom" constant="100" id="gsx-ha-kxb"/>
-                            <constraint firstItem="rnr-q9-yYR" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="100" id="hSA-Si-aUj"/>
+                            <constraint firstItem="rnr-q9-yYR" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="80" id="hSA-Si-aUj"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="eAG-PL-F2u" secondAttribute="trailing" id="ptH-Q0-nsA"/>
+                            <constraint firstItem="JDK-2x-60r" firstAttribute="trailing" secondItem="aZ9-Rc-8cp" secondAttribute="trailing" id="qQz-Ke-boh"/>
+                            <constraint firstItem="MX9-ly-mVE" firstAttribute="top" secondItem="aZ9-Rc-8cp" secondAttribute="bottom" constant="4" id="sXf-pj-FNh"/>
                             <constraint firstItem="MX9-ly-mVE" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" constant="20" id="t5K-zN-zWn"/>
+                            <constraint firstItem="aZ9-Rc-8cp" firstAttribute="leading" secondItem="JDK-2x-60r" secondAttribute="leading" id="tEs-AJ-SDk"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="costField" destination="MX9-ly-mVE" id="AzV-UP-klQ"/>
+                        <outlet property="costFieldLabel" destination="aZ9-Rc-8cp" id="khf-bg-Uwa"/>
                         <outlet property="incomeExpenseControl" destination="rnr-q9-yYR" id="dKn-y2-cUY"/>
                         <outlet property="textField" destination="pe8-bk-8pI" id="hJD-bG-boF"/>
+                        <outlet property="textFieldLabel" destination="eAG-PL-F2u" id="Do0-GK-W2Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9D-eJ-MBc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
