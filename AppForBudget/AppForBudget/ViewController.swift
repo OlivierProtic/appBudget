@@ -24,6 +24,8 @@ class ToDoListItem: Object {
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    public var myCurrency: CurrencyChosing?
+    
     @IBOutlet var table: UITableView!
     @IBOutlet var total: UILabel!
 
@@ -40,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 sum -= item.amount
             }
         }
-        total.text = "Total: " + "\(sum)" + " $"
+        total.text = "Total: " + "\(sum) " + String(myCurrency?.myCurrency ?? " $")
     }
     
     override func viewDidLoad() {
@@ -50,7 +52,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.delegate = self
         table.dataSource = self
         // Do any additional setup after loading the view.
-        
     }
        
     // MARK: Table
@@ -101,5 +102,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         data = realm.objects(ToDoListItem.self).map({ $0 })
         table.reloadData()
     }
-
+   
+    @IBAction func didTapSettings() {
+        guard let vc = storyboard?.instantiateViewController(identifier: "settings") as? SettingsViewController else {
+            return
+        }
+        vc.navigationItem.largeTitleDisplayMode = .never
+        navigationController?.pushViewController(vc, animated: true)
+        
+        vc.title = "Settings"
+        vc.navigationItem.largeTitleDisplayMode = .never
+    }
+    
 }

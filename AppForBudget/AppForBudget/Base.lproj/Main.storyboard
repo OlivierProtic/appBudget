@@ -137,6 +137,52 @@
             </objects>
             <point key="canvasLocation" x="2735" y="84"/>
         </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="lD0-Ic-WIN">
+            <objects>
+                <viewController storyboardIdentifier="settings" id="Rmf-Hg-xMw" customClass="SettingsViewController" customModule="AppForBudget" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="J3h-7O-k2R">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iF8-3O-fd2">
+                                <rect key="frame" x="20" y="184" width="374" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="bQm-yV-TfM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FHh-70-hlz">
+                                <rect key="frame" x="0.0" y="160" width="414" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="G4k-wz-3qV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="o0h-HN-AoP"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iF8-3O-fd2" firstAttribute="leading" secondItem="o0h-HN-AoP" secondAttribute="leading" constant="20" id="7iK-xV-rfo"/>
+                            <constraint firstItem="iF8-3O-fd2" firstAttribute="top" secondItem="FHh-70-hlz" secondAttribute="bottom" constant="4" id="JqG-ub-n1m"/>
+                            <constraint firstItem="FHh-70-hlz" firstAttribute="leading" secondItem="o0h-HN-AoP" secondAttribute="leading" id="L5Z-6j-zns"/>
+                            <constraint firstItem="FHh-70-hlz" firstAttribute="top" secondItem="o0h-HN-AoP" secondAttribute="top" constant="116" id="dnv-td-3vZ"/>
+                            <constraint firstItem="o0h-HN-AoP" firstAttribute="trailing" secondItem="iF8-3O-fd2" secondAttribute="trailing" constant="20" id="gzE-2c-p75"/>
+                            <constraint firstItem="o0h-HN-AoP" firstAttribute="trailing" secondItem="FHh-70-hlz" secondAttribute="trailing" id="kf0-lG-0q7"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="currencyLabel" destination="FHh-70-hlz" id="Dlb-FN-XLv"/>
+                        <outlet property="currencyText" destination="iF8-3O-fd2" id="YZm-nM-4Zc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OKe-1F-1bL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3615" y="83"/>
+        </scene>
         <!--Budget-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -170,6 +216,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Budget" id="KR5-ee-0XU">
+                        <barButtonItem key="leftBarButtonItem" title="gear" image="gear" catalog="system" id="QO7-Ot-L17">
+                            <connections>
+                                <action selector="didTapSettings" destination="BYZ-38-t0r" id="O55-iB-pCb"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="luT-pn-j2B">
                             <connections>
                                 <action selector="didTapAddButton" destination="BYZ-38-t0r" id="gW0-W3-pK2"/>
@@ -183,7 +234,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908.69565217391312" y="83.705357142857139"/>
+            <point key="canvasLocation" x="978" y="84"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1Qd-Zn-jqA">
@@ -205,6 +256,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="gear" catalog="system" width="128" height="119"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

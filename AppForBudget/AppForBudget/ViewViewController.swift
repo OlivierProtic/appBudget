@@ -17,18 +17,18 @@ class ViewViewController: UIViewController {
 
     private let realm = try! Realm()
 
-    static let dateFormatter: DateFormatter = {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        return dateFormatter
-    }()
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         itemLabel.text = item?.item
-        costLabel.text = String(item?.amount ?? 0)
-
+        
+        if item?.positiveOrNegative == true {
+          
+            costLabel.text = "+ " + String(item?.amount ?? 0)
+        } else {
+            costLabel.text = "- " + String(item?.amount ?? 0)
+        }
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDelete))
     }
 
