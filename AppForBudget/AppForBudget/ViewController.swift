@@ -23,8 +23,6 @@ class ToDoListItem: Object {
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
-    public var myCurrency: CurrencyChosing?
     
     @IBOutlet var table: UITableView!
     @IBOutlet var total: UILabel!
@@ -42,7 +40,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 sum -= item.amount
             }
         }
-        total.text = "Total: " + "\(sum) " + String(myCurrency?.myCurrency ?? " $")
+        let currency = CurrencyChosing.currency
+        total.text = "Total: " + "\(sum)" + "\(currency)"
     }
     
     override func viewDidLoad() {
@@ -64,7 +63,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.textLabel?.text = data[indexPath.row].item
         return cell
     }
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
 

@@ -4,11 +4,19 @@
 //
 //  Created by Olivier Rodrigue on 2021-05-22.
 //
-import RealmSwift
 import UIKit
+import RealmSwift
 
 class CurrencyChosing: Object {
-    @objc dynamic var myCurrency: String = ""
+    private static let currencyKey = "currency_key"
+    static var currency: String {
+    get {
+    return UserDefaults.standard.string(forKey: currencyKey) ?? ""
+    }
+    set {
+    UserDefaults.standard.set(newValue, forKey: currencyKey)
+        }
+    }
 }
 
 class SettingsViewController: UIViewController, UITextFieldDelegate {
@@ -16,12 +24,10 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet var currencyLabel: UILabel!
     @IBOutlet var currencyText: UITextField!
     
-    private let realm = try! Realm()
     public var completionHandler: (() -> Void)?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        currencyText.delegate = self
         currencyLabel.text = "Change currency"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSaveButton))
         
@@ -45,20 +51,32 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func didTapSaveButton() {
         if let text = currencyText.text, !text.isEmpty {
-            
-            realm.beginWrite()
-            let newCurrency = CurrencyChosing()
-            
-            newCurrency.myCurrency = text
-            realm.add(newCurrency)
-            try! realm.commitWrite()
+        
+            CurrencyChosing.currency = text
             completionHandler?()
             navigationController?.popToRootViewController(animated: true)
-            
-            print(newCurrency)
-            
-        } else {
-  
+
+            print("My new currency is \(text)")
+        }
     }
+    @IBAction func changeBackground(_ sender: Any) {
+        let picker = UIColorPickerViewController()
+        picker.selectedColor = self.view.backgroundColor!
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+
 }
+extension SettingsViewController: UIColorPickerViewControllerDelegate {
+    
+    //  Called once you have finished picking the color.
+    func colorPickerViewControllerDidFinish(_ settingsViewController: UIColorPickerViewController) {
+        self.view.backgroundColor = settingsViewController.selectedColor
+        
+    }
+    
+    //  Called on every color selection done in the picker.
+    func colorPickerViewControllerDidSelectColor(_ settingsViewController: UIColorPickerViewController) {
+            self.view.backgroundColor = settingsViewController.selectedColor
+    }
 }
