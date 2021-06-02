@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class CurrencyChosing: Object {
+class CurrencyChosing {
     private static let currencyKey = "currency_key"
     static var currency: String {
         get {
