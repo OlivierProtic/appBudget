@@ -42,7 +42,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
         }
         let currency = CurrencyChosing.currency
-        total.text = "Total: " + "\(sum)" + "\(currency)"
+        total.text = "Total: " + "\(sum)" + " \(currency)"
     }
     
     override func viewDidLoad() {
