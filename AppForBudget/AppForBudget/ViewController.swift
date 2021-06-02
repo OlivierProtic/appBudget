@@ -4,6 +4,7 @@
 //
 //  Created by Olivier Rodrigue on 2021-03-04.
 //
+
 import RealmSwift
 import UIKit
 
@@ -50,7 +51,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         table.delegate = self
         table.dataSource = self
-        // Do any additional setup after loading the view.
     }
        
     // MARK: Table
@@ -58,6 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
     }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row].item
@@ -76,7 +77,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         vc.item = item
         vc.deletionHandler = { [weak self] in
             self?.refresh()
-
         }
         vc.navigationItem.largeTitleDisplayMode = .never
         vc.title = item.item
@@ -86,7 +86,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func didTapAddButton() {
         guard let vc = storyboard?.instantiateViewController(identifier: "enter") as? EntryViewController else {
             return
-
         }
         vc.completionHandler = { [weak self] in
             self?.refresh()
@@ -94,7 +93,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         vc.title = "New Item"
         vc.navigationItem.largeTitleDisplayMode = .never
         navigationController?.pushViewController(vc, animated: true)
-
     }
 
     func refresh() {

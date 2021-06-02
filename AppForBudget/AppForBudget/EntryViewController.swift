@@ -4,6 +4,7 @@
 //
 //  Created by Olivier Rodrigue on 2021-03-05.
 //
+
 import RealmSwift
 import UIKit
 
@@ -24,15 +25,11 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         textField.becomeFirstResponder()
         textField.delegate = self
 
-        // ajouté
         costField.becomeFirstResponder()
         costField.delegate = self
-        //
 
         textFieldLabel.text = "Name"
         costFieldLabel.text = "Amount"
-        
-        // datePicker.setDate(Date(), animated: true)
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(didTapSaveButton))
     }
@@ -41,18 +38,17 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
         textField.resignFirstResponder()
         return true
     }
-    // ajouté
+
     func costFieldShouldReturn(_ costField: UITextField) -> Bool {
         costField.resignFirstResponder()
         return true
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
-      replacementString string: String) -> Bool {
+                   replacementString string: String) -> Bool {
         if textField == costField {
-        let invalidCharacters =
-        CharacterSet(charactersIn: "0123456789.").inverted
-      return (string.rangeOfCharacter(from: invalidCharacters) == nil)
+            let invalidCharacters = CharacterSet(charactersIn: "0123456789.").inverted
+            return (string.rangeOfCharacter(from: invalidCharacters) == nil)
         } else {
             return true
         }
@@ -61,13 +57,10 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
     @objc func  didTapSaveButton() {
         
         if let text = textField.text, !text.isEmpty, let amount = costField.text, !amount.isEmpty {
-           // let date = datePicker.date
-
             realm.beginWrite()
-       
             let newItem = ToDoListItem()
-        
-        switch(incomeExpenseControl.selectedSegmentIndex) {
+
+            switch incomeExpenseControl.selectedSegmentIndex {
             case 0:
                 newItem.positiveOrNegative = true
             case 1:
@@ -75,8 +68,7 @@ class EntryViewController: UIViewController, UITextFieldDelegate {
             default:
                 newItem.positiveOrNegative = true
             }
-            
-            //  newItem.date = date
+
             newItem.item = text
             newItem.amount = Double(amount)!
             realm.add(newItem)
