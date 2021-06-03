@@ -4,6 +4,7 @@
 //
 //  Created by Olivier Rodrigue on 2021-03-05.
 //
+
 import RealmSwift
 import UIKit
 
@@ -23,13 +24,14 @@ class ViewViewController: UIViewController {
         itemLabel.text = item?.item
         
         if item?.positiveOrNegative == true {
-          
             costLabel.text = "+ " + String(item?.amount ?? 0) + "$"
         } else {
             costLabel.text = "- " + String(item?.amount ?? 0) + "$"
         }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(didTapDelete))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
+                                                            target: self,
+                                                            action: #selector(didTapDelete))
     }
 
     @objc private func didTapDelete() {
