@@ -24,9 +24,9 @@ class ViewViewController: UIViewController {
         itemLabel.text = item?.item
         
         if item?.positiveOrNegative == true {
-            costLabel.text = "+ " + String(item?.amount ?? 0)
+            costLabel.text = "+ " + String(item?.amount ?? 0) + "$"
         } else {
-            costLabel.text = "- " + String(item?.amount ?? 0)
+            costLabel.text = "- " + String(item?.amount ?? 0) + "$"
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
