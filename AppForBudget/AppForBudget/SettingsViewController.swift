@@ -8,18 +8,6 @@
 import UIKit
 import RealmSwift
 
-class CurrencyChosing {
-    private static let currencyKey = "currency_key"
-    static var currency: String {
-        get {
-            return UserDefaults.standard.string(forKey: currencyKey) ?? ""
-        }
-        set {
-            UserDefaults.standard.set(newValue, forKey: currencyKey)
-        }
-    }
-}
-
 class SettingsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var currencyLabel: UILabel!
@@ -55,7 +43,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func didTapSaveButton() {
         if let text = currencyText.text, !text.isEmpty {
-            CurrencyChosing.currency = text
+            SavedSettings.currency = text
             completionHandler?()
             navigationController?.popToRootViewController(animated: true)
 
@@ -76,10 +64,12 @@ extension SettingsViewController: UIColorPickerViewControllerDelegate {
     // Called once you have finished picking the color.
     func colorPickerViewControllerDidFinish(_ settingsViewController: UIColorPickerViewController) {
         self.view.backgroundColor = settingsViewController.selectedColor
+        SavedSettings.backgroundColor = selectedColor
     }
     
     // Called on every color selection done in the picker.
     func colorPickerViewControllerDidSelectColor(_ settingsViewController: UIColorPickerViewController) {
         self.view.backgroundColor = settingsViewController.selectedColor
+        SavedSettings.backgroundColor = selectedColor
     }
 }

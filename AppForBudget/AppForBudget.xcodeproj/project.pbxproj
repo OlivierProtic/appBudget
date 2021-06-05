@@ -10,6 +10,7 @@
 		9F7377F7B0E6FEBF13F484D3 /* Pods_AppForBudget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 515499B8962DE18E216E31C9 /* Pods_AppForBudget.framework */; };
 		E623328D25F284A000BA0211 /* EntryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E623328C25F284A000BA0211 /* EntryViewController.swift */; };
 		E623329025F284DB00BA0211 /* ViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E623328F25F284DB00BA0211 /* ViewViewController.swift */; };
+		E6439406266BCD1A00D8A3D0 /* SavedSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6439405266BCD1A00D8A3D0 /* SavedSettings.swift */; };
 		E697AE822659288A00518340 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E697AE812659288A00518340 /* SettingsViewController.swift */; };
 		E6F91F0B25F12EB400755915 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F91F0A25F12EB400755915 /* AppDelegate.swift */; };
 		E6F91F0D25F12EB400755915 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F91F0C25F12EB400755915 /* SceneDelegate.swift */; };
@@ -25,6 +26,7 @@
 		9B60CD88566043D199334BDE /* Pods-AppForBudget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppForBudget.release.xcconfig"; path = "Target Support Files/Pods-AppForBudget/Pods-AppForBudget.release.xcconfig"; sourceTree = "<group>"; };
 		E623328C25F284A000BA0211 /* EntryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryViewController.swift; sourceTree = "<group>"; };
 		E623328F25F284DB00BA0211 /* ViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewViewController.swift; sourceTree = "<group>"; };
+		E6439405266BCD1A00D8A3D0 /* SavedSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedSettings.swift; sourceTree = "<group>"; };
 		E697AE812659288A00518340 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		E6F91F0725F12EB400755915 /* AppForBudget.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppForBudget.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6F91F0A25F12EB400755915 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				E623328C25F284A000BA0211 /* EntryViewController.swift */,
 				E623328F25F284DB00BA0211 /* ViewViewController.swift */,
 				E697AE812659288A00518340 /* SettingsViewController.swift */,
+				E6439405266BCD1A00D8A3D0 /* SavedSettings.swift */,
 			);
 			path = AppForBudget;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			files = (
 				E6F91F0F25F12EB400755915 /* ViewController.swift in Sources */,
 				E623328D25F284A000BA0211 /* EntryViewController.swift in Sources */,
+				E6439406266BCD1A00D8A3D0 /* SavedSettings.swift in Sources */,
 				E623329025F284DB00BA0211 /* ViewViewController.swift in Sources */,
 				E6F91F0B25F12EB400755915 /* AppDelegate.swift in Sources */,
 				E6F91F0D25F12EB400755915 /* SceneDelegate.swift in Sources */,
