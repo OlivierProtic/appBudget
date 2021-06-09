@@ -34,6 +34,11 @@ class ViewViewController: UIViewController {
                                                             action: #selector(didTapDelete))
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = UserDefaults.standard.backgroundColor
+    }
+
     @objc private func didTapDelete() {
         guard let myItem = self.item else {
             return
