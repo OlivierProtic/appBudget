@@ -41,8 +41,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 sum -= item.amount
             }
         }
-        let currency = CurrencyChosing.currency
+        let currency = UserDefaults.standard.currency
         total.text = "Total: " + "\(sum)" + " \(currency)"
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        view.backgroundColor = UserDefaults.standard.backgroundColor
+        table.backgroundColor = UserDefaults.standard.backgroundColor
+        table.reloadData()
     }
     
     override func viewDidLoad() {
@@ -62,6 +70,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.row].item
+        cell.backgroundColor = UserDefaults.standard.backgroundColor
         return cell
     }
     
@@ -110,5 +119,4 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         vc.title = "Settings"
         vc.navigationItem.largeTitleDisplayMode = .never
     }
-    
 }

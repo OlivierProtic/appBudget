@@ -24,6 +24,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         currencyText.becomeFirstResponder()
         currencyText.delegate = self
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        view.backgroundColor = UserDefaults.standard.backgroundColor
+    }
+
     func textField(_ textField: UITextField,
                    shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
@@ -43,7 +49,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @objc func didTapSaveButton() {
         if let text = currencyText.text, !text.isEmpty {
-            SavedSettings.currency = text
+            UserDefaults.standard.currency = text
             completionHandler?()
             navigationController?.popToRootViewController(animated: true)
 
@@ -63,13 +69,19 @@ extension SettingsViewController: UIColorPickerViewControllerDelegate {
     
     // Called once you have finished picking the color.
     func colorPickerViewControllerDidFinish(_ settingsViewController: UIColorPickerViewController) {
-        self.view.backgroundColor = settingsViewController.selectedColor
-        SavedSettings.backgroundColor = selectedColor
+        saveColor(forViewController: settingsViewController)
     }
     
     // Called on every color selection done in the picker.
     func colorPickerViewControllerDidSelectColor(_ settingsViewController: UIColorPickerViewController) {
-        self.view.backgroundColor = settingsViewController.selectedColor
-        SavedSettings.backgroundColor = selectedColor
+        saveColor(forViewController: settingsViewController)
+    }
+
+    private func saveColor(forViewController viewController: UIColorPickerViewController) {
+        let selectedColor = viewController.selectedColor
+        print("Selected new color \(selectedColor.debugDescription)")
+
+        view.backgroundColor = selectedColor
+        UserDefaults.standard.backgroundColor = selectedColor
     }
 }
