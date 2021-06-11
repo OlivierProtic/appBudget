@@ -23,10 +23,12 @@ class ViewViewController: UIViewController {
        
         itemLabel.text = item?.item
         
+        let currency = UserDefaults.standard.currency
+        
         if item?.positiveOrNegative == true {
-            costLabel.text = "+ " + String(item?.amount ?? 0) + "$"
+            costLabel.text = "+ " + String(item?.amount ?? 0) + " \(currency)"
         } else {
-            costLabel.text = "- " + String(item?.amount ?? 0) + "$"
+            costLabel.text = "- " + String(item?.amount ?? 0) + " \(currency)"
         }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash,
